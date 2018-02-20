@@ -7,13 +7,10 @@ namespace Services
     public interface IQueueService
     {
         string Id { get; }
-        IEnumerable<Character> QueuedCharacters { get; }
+        IEnumerable<QueueCharacter> QueuedCharacters { get; }
 
         event EventHandler QueueTick;
-        event EventHandler QueuePop;
-        void AddCharacter(Character character);
-        void RemoveCharacter(Character character);
-
-
+        void AddCharacter(QueueCharacter character);
+        void RemoveCharacter(QueueCharacter character);
     }
 }

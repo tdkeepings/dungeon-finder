@@ -4,7 +4,7 @@ namespace Models
 {
     public class DungeonGroup
     {
-        public List<QueueCharacter> Members { get; set; }
+        public IEnumerable<QueueCharacter> Members { get; set; }
 
     }
 }

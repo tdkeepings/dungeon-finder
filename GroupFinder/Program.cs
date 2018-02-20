@@ -17,8 +17,9 @@ namespace GroupFinder
             var builder = new ContainerBuilder();
 
             // only need to define what's going to get used in the scope of this class
-            builder.RegisterType<QueueService>().As<IQueueService>();
-            builder.RegisterType<DungeonFinderService>();
+            builder.RegisterType<QueueService>().As<IQueueService>().SingleInstance();
+            builder.RegisterType<DungeonFinderService>().As<IDungeonFinderService>();
+            builder.RegisterType<AppService>();
 
             // build it
             Container = builder.Build();
@@ -26,7 +27,7 @@ namespace GroupFinder
             //use it
             using (var scope = Container.BeginLifetimeScope())
             {
-                var service  = scope.Resolve<DungeonFinderService>();
+                var service  = scope.Resolve<AppService>();
                 service.Start();
             }
         }
