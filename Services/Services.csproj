@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <ProjectReference Include="..\Lookups\Lookups.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
   </ItemGroup>
 
