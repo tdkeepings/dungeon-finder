@@ -31,8 +31,7 @@ namespace Services
             t.AutoReset = true;
             t.Elapsed += new ElapsedEventHandler(OnQueueTick);
             t.Start();
-
-
+            
             // all done
             Console.WriteLine("Started service with ID: " + Id);
         }
