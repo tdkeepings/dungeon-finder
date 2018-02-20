@@ -1,9 +1,7 @@
 ﻿using Models;
 using System;
 using Services;
-using System.Linq;
 using Lookups;
-using System.Collections.Generic;
 
 namespace GroupFinder
 {
@@ -13,7 +11,6 @@ namespace GroupFinder
         {
             CharacterGenerator generator = new CharacterGenerator();
             IQueueService service = new QueueService();
-            service.QueueTick += DungeonQueueEventHandler;
 
             Console.WriteLine("Add players to the queue. W for Warrior, P for Priest");
 
@@ -39,19 +36,6 @@ namespace GroupFinder
                     service.AddCharacter(generator.Priest());
                 }
             }
-        }
-
-        /// <summary>
-        /// Event handler for dungeon specific queue usage
-        /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
-        static void DungeonQueueEventHandler(object sender, EventArgs e)
-        {
-            IQueueService service = (IQueueService)sender;
-            DungeonService dungeonService = new DungeonService(service);
-
-            dungeonService.PollQueueForValidGroup();
         }
     }
 }

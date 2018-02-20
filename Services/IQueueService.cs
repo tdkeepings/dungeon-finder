@@ -8,7 +8,9 @@ namespace Services
     {
         string Id { get; }
         IEnumerable<Character> QueuedCharacters { get; }
+
         event EventHandler QueueTick;
+        event EventHandler QueuePop;
         void AddCharacter(Character character);
         void RemoveCharacter(Character character);
 
